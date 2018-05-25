@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>wisecloud yum repo</title>
+    </head>
+    <body>
+        <H1>wisecloud yum repo source</H1>
+        <H1 color=red><a href="/repo" >/repo</a></H1>
+        <hr>
+        cp wisecloud.repo /etc/yum.repos.d/wisecloud.repo<br>
+        yum cleanall<br>
+        yum makecache<br>
+        yum --disablerepo=* --enablerepo=wisecloud -y install jq tree docker-compose<br>
+    </body>
+</html>

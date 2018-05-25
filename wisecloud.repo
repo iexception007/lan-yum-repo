@@ -1,0 +1,5 @@
+[wisecloud]
+name=wisecloud
+baseurl=http://10.0.0.151/repo
+enabled=1
+gpgcheck=0
