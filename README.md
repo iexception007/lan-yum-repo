@@ -1,4 +1,4 @@
-lan-yum-repo
+# lan-yum-repo
 1. download the rpm from the aliyun's mirror yum repo.
 2. create the yum repo in the lan-network.
 
@@ -22,14 +22,17 @@ make clear
 make gen 
 ```
 
-# start network yum repo
+# start nginx for yum repo
 ```
 make run
 ```
 
+# access the nginx
+chrome open the curl http://host_ip
+
 # download the .repo to the every host. 
 ```
-curl -o /etc/yum.repos.d/wisecloud.repo http://${repo.lan.com}/wisecloud.repo
+curl -o /etc/yum.repos.d/wisecloud.repo http://${host_ip}/wisecloud.repo
 ```
 
 # install the packages which you want.
