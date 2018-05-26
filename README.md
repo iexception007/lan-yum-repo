@@ -1,27 +1,40 @@
-# lan-yum-repo
-yum source at the lan network
+lan-yum-repo
+1. download the rpm from the aliyun's mirror yum repo.
+2. create the yum repo in the lan-network.
 
-# make local source
-``` bash
-./makelocalrepo.sh localrepo jq tree docker-py docker-compose  
+# build centos 7 base image for repo_generator
 ```
-<---  
-```
-localrepo
-localrepo.tar.gz
+make build
 ```
 
-# use local source
-tar -zxvf localrepo.tar.gz
-cd localrepo
-./install.sh
+# edit the package list.
+```
+vim /workdir/packages.txt
+ jq  
+ net-utils  
+ docker  
+ docker-compose  
+```
 
+# gen the repo for lan network yum repo
+``` 
+make clear
+make gen 
+```
 
-# docker nginx
+# start network yum repo
+```
 make run
+```
 
-# copy wisecloud.repo to every host.
-cp wisecloud.repo /etc/yum.repos.d/wisecloud.repo
+# download the .repo to the every host. 
+```
+curl -o /etc/yum.repos.d/wisecloud.repo http://${repo.lan.com}/wisecloud.repo
+```
+
+# install the packages which you want.
+```
 yum cleanall
 yum makecache
 yum --disablerepo=* --enablerepo=wisecloud -y install jq tree docker-compose
+```

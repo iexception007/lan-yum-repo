@@ -1,0 +1,7 @@
+jq
+net-tools
+curl
+wget
+tcpdump
+docker
+docker-compose
