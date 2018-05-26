@@ -12,12 +12,12 @@ function read_packages_file() {
 }
 
 HOST_IP=$1
-repo="./wisecloud/repo"
+repo="wisecloud/repo"
 packages=`read_packages_file ./packages.txt`
 rm -rf wisecloud
 mkdir -p $repo
 
-cat > ./wisecloud/index.html <<EOF
+cat > wisecloud/index.html <<EOF
 <html>
     <head>
         <title>wisecloud yum repo</title>
@@ -58,7 +58,7 @@ cat > ./wisecloud/index.html <<EOF
 </html>
 EOF
 
-cat > ./wisecloud/wisecloud.repo <<EOF
+cat > wisecloud/wisecloud.repo <<EOF
 [wisecloud]
 name=wisecloud
 baseurl=http://${HOST_IP}/repo
