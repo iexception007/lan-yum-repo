@@ -28,7 +28,12 @@ make run
 ```
 
 # access the nginx
-chrome open the curl http://host_ip
+chrome open the curl http://host_ip  
+
+list the packages.  
+show the wisecloud.repo  
+install manual.  
+
 
 # download the .repo to the every host. 
 ```
