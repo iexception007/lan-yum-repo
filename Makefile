@@ -10,7 +10,7 @@ build:
 gen:
 	-docker rm -f repo_gen
 	echo ${HOST_IP}
-	docker run -d --name repo_gen -v ${PWD}/workdir:/workdir $(REPO):$(VERSION) /workdir/run.sh ${HOST_IP}
+	docker run -d --name repo_gen --privileged=true -v ${PWD}/workdir:/workdir $(REPO):$(VERSION) /workdir/run.sh ${HOST_IP}
 	docker logs -f repo_gen
 
 run:
